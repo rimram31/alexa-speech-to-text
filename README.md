@@ -1,102 +1,102 @@
 # Alexa Dialog to Web Service
 
-⚠️ **AVERTISSEMENT** ⚠️
-Ce code a été généré automatiquement et n'a pas été testé en production. Il est fourni "tel quel" sans garantie de fonctionnement. Il est fortement recommandé de :
-- Tester le code dans un environnement de développement avant de le déployer
-- Vérifier la sécurité des endpoints et des configurations
-- Adapter le code selon vos besoins spécifiques
-- Effectuer des tests approfondis avant toute utilisation en production
+⚠️ **WARNING** ⚠️
+This code has been automatically generated and has not been tested in production. It is provided "as is" without any warranty of functionality. It is strongly recommended to:
+- Test the code in a development environment before deployment
+- Verify the security of endpoints and configurations
+- Adapt the code according to your specific needs
+- Perform thorough testing before any production use
 
-Ce projet contient une fonction Lambda Alexa qui capture le dialogue de l'utilisateur et le transmet à un endpoint web. La réponse de l'endpoint est ensuite retournée à l'utilisateur.
+This project contains an Alexa Lambda function that captures user dialogue and transmits it to a web endpoint. The endpoint's response is then returned to the user.
 
-## Prérequis
+## Prerequisites
 
-- Python 3.8 ou supérieur
-- Un compte Amazon Developer
-- Un compte AWS
-- Un endpoint web fonctionnel
+- Python 3.8 or higher
+- An Amazon Developer account
+- An AWS account
+- A functional web endpoint
 
 ## Installation
 
-1. Clonez ce dépôt
-2. Installez les dépendances :
+1. Clone this repository
+2. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Créez un fichier `.env` à la racine du projet avec les variables suivantes :
+3. Create a `.env` file at the root of the project with the following variables:
 ```
-WEB_ENDPOINT=votre_url_endpoint
+WEB_ENDPOINT=your_endpoint_url
 ```
 
-## Configuration Alexa
+## Alexa Configuration
 
-1. Créez une nouvelle compétence Alexa dans le [Alexa Developer Console](https://developer.amazon.com/alexa)
-2. Configurez l'intention `DialogIntent` avec le slot suivant :
-   - Nom du slot : `dialog`
-   - Type : `AMAZON.SearchQuery`
-3. Configurez la Lambda dans AWS :
-   - Créez une nouvelle fonction Lambda
-   - Copiez le contenu de `lambda_function.py`
-   - Configurez le runtime Python 3.8
-   - Ajoutez les variables d'environnement nécessaires
-4. Liez la Lambda à votre skill Alexa
+1. Create a new Alexa skill in the [Alexa Developer Console](https://developer.amazon.com/alexa)
+2. Configure the `DialogIntent` with the following slot:
+   - Slot name: `dialog`
+   - Type: `AMAZON.SearchQuery`
+3. Configure the Lambda in AWS:
+   - Create a new Lambda function
+   - Copy the content of `lambda_function.py`
+   - Configure Python 3.8 runtime
+   - Add necessary environment variables
+4. Link the Lambda to your Alexa skill
 
-## Fichiers de Configuration Alexa
+## Alexa Configuration Files
 
-Le projet contient deux fichiers de configuration principaux pour la skill Alexa :
+The project contains two main configuration files for the Alexa skill:
 
 ### 1. interaction-model.json
-Ce fichier définit le modèle d'interaction de la skill :
-- Le nom d'invocation ("mon assistant")
-- L'intention `DialogIntent` avec son slot `dialog`
-- Les exemples d'énoncés pour l'intention
-- Les intentions système (Help, Cancel, Stop)
+This file defines the skill's interaction model:
+- Invocation name ("mon assistant")
+- `DialogIntent` with its `dialog` slot
+- Sample utterances for the intent
+- System intents (Help, Cancel, Stop)
 
 ### 2. skill-package/skill.json
-Ce fichier contient le manifeste de la skill :
-- Les métadonnées de la skill (nom, description, etc.)
-- La configuration de l'endpoint Lambda
-- Les informations de publication
+This file contains the skill manifest:
+- Skill metadata (name, description, etc.)
+- Lambda endpoint configuration
+- Publishing information
 
-Pour utiliser ces fichiers :
-1. Dans l'Alexa Developer Console, allez dans "Build"
-2. Pour le modèle d'interaction :
-   - Cliquez sur "JSON Editor"
-   - Copiez le contenu de `interaction-model.json`
-3. Pour le manifeste :
-   - Allez dans "Skill Information"
-   - Mettez à jour les informations selon votre configuration
-   - Remplacez `REGION`, `ACCOUNT_ID` et `FUNCTION_NAME` dans l'URI de l'endpoint
+To use these files:
+1. In the Alexa Developer Console, go to "Build"
+2. For the interaction model:
+   - Click on "JSON Editor"
+   - Copy the content of `interaction-model.json`
+3. For the manifest:
+   - Go to "Skill Information"
+   - Update information according to your configuration
+   - Replace `REGION`, `ACCOUNT_ID`, and `FUNCTION_NAME` in the endpoint URI
 
-## Structure du projet
+## Project Structure
 
-- `lambda_function.py` : Code principal de la fonction Lambda
-- `requirements.txt` : Dépendances Python
-- `.env` : Variables d'environnement (à créer)
-- `interaction-model.json` : Modèle d'interaction Alexa
-- `skill-package/skill.json` : Manifeste de la skill
+- `lambda_function.py`: Main Lambda function code
+- `requirements.txt`: Python dependencies
+- `.env`: Environment variables (to be created)
+- `interaction-model.json`: Alexa interaction model
+- `skill-package/skill.json`: Skill manifest
 
-## Format des requêtes/réponses
+## Request/Response Format
 
-### Requête vers l'endpoint web
+### Request to web endpoint
 ```json
 {
-    "dialog": "texte de l'utilisateur"
+    "dialog": "user text"
 }
 ```
 
-### Réponse attendue de l'endpoint
+### Expected endpoint response
 ```json
 {
-    "response": "réponse à retourner à l'utilisateur"
+    "response": "response to return to user"
 }
 ```
 
-## Déploiement
+## Deployment
 
-1. Créez un fichier ZIP contenant :
+1. Create a ZIP file containing:
    - `lambda_function.py`
-   - Tous les fichiers du dossier `site-packages` après installation des dépendances
-2. Téléchargez le ZIP dans votre fonction Lambda AWS
-3. Configurez les variables d'environnement dans la console AWS 
+   - All files from the `site-packages` directory after installing dependencies
+2. Upload the ZIP to your AWS Lambda function
+3. Configure environment variables in the AWS console 

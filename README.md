@@ -1,5 +1,12 @@
 # Alexa Dialog to Web Service
 
+⚠️ **AVERTISSEMENT** ⚠️
+Ce code a été généré automatiquement et n'a pas été testé en production. Il est fourni "tel quel" sans garantie de fonctionnement. Il est fortement recommandé de :
+- Tester le code dans un environnement de développement avant de le déployer
+- Vérifier la sécurité des endpoints et des configurations
+- Adapter le code selon vos besoins spécifiques
+- Effectuer des tests approfondis avant toute utilisation en production
+
 Ce projet contient une fonction Lambda Alexa qui capture le dialogue de l'utilisateur et le transmet à un endpoint web. La réponse de l'endpoint est ensuite retournée à l'utilisateur.
 
 ## Prérequis

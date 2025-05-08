@@ -1,0 +1,38 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "mon assistant",
+            "intents": [
+                {
+                    "name": "DialogIntent",
+                    "slots": [
+                        {
+                            "name": "dialog",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "dis {dialog}",
+                        "dit {dialog}",
+                        "envoie {dialog}",
+                        "transmets {dialog}",
+                        "communique {dialog}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                }
+            ],
+            "types": []
+        }
+    }
+} 

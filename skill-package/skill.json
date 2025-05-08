@@ -1,0 +1,36 @@
+{
+    "manifest": {
+        "apis": {
+            "custom": {
+                "endpoint": {
+                    "uri": "arn:aws:lambda:REGION:ACCOUNT_ID:function:FUNCTION_NAME"
+                },
+                "interfaces": []
+            }
+        },
+        "manifestVersion": "1.0",
+        "publishingInformation": {
+            "locales": {
+                "fr-FR": {
+                    "name": "Mon Assistant",
+                    "summary": "Un assistant qui transmet vos messages à un service web",
+                    "description": "Cette skill vous permet de communiquer avec un service web. Dites simplement ce que vous souhaitez transmettre, et l'assistant s'occupera de l'envoyer et de vous donner la réponse.",
+                    "examplePhrases": [
+                        "Alexa, ouvre mon assistant",
+                        "Alexa, dis bonjour",
+                        "Alexa, demande à mon assistant de transmettre un message"
+                    ],
+                    "keywords": [
+                        "assistant",
+                        "communication",
+                        "message"
+                    ]
+                }
+            },
+            "isAvailableWorldwide": true,
+            "testingInstructions": "Testez la skill en disant 'Alexa, ouvre mon assistant' puis donnez un message à transmettre.",
+            "category": "COMMUNICATION",
+            "distributionCountries": []
+        }
+    }
+} 

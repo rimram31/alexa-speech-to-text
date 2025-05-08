@@ -1,0 +1,4 @@
+ask-sdk-core==1.28.0
+ask-sdk-model==1.28.0
+requests==2.31.0
+python-dotenv==1.0.0 
